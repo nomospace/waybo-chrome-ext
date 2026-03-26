@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "FinView - 财经内容 AI 解读",
+  "version": "1.0.0",
+  "description": "选中财经文字，AI 智能解读",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://dashscope.aliyuncs.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://weibo.com/*", "https://www.weibo.com/*", "https://xueqiu.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
